@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>搜索</title>
+    <style>
+        nav a {
+            padding: 5px;
+            color: #333;
+            text-decoration: none;
+            font-size: 12px;
+            margin-right: 20px;
+        }
+
+        nav a.now, nav a:hover {
+            background: #fa0;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+<h4>筛选项：</h4>
+<nav>
+    <a href="?tag=thinkPad" data-tag="thinkPad" class="<?php echo $returnData['tag']=='thinkPad'?'now':'' ?>">thinkPad</a>
+    <a href="?tag=apple" data-tag="apple"  class="<?php echo $returnData['tag']=='apple'?'now':'' ?>">apple</a>
+    <a href="?tag=dell" data-tag="dell"  class="<?php echo $returnData['tag']=='dell'?'now':'' ?>">dell</a>
+</nav>
+<h4>搜索结果：</h4>
+<ul>
+    <?php forEach($returnData['list'] as $i => $item){ ?>
+    <li>
+        <p>名称：<?php echo $item['name']?></p>
+        <p>价格：<?php echo $item['price']?></p>
+    </li>
+    <?php } ?>
+</ul>
+<script src="js/jquery.min.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>
